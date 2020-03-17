@@ -1,0 +1,29 @@
+<html>
+<meta charset="UTF-8">
+<script src="/webjars/jquery/2.2.4/dist/jquery.js"></script>
+<title>DownLoad Page</title>
+</head>
+<body>
+<body>
+<h1>文件下载</h1>
+<input type="text" id="file" placeholder="请输入文件名">
+<button>点击下载</button>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("button").click(function () {
+            var url = "http://localhost:8080/download/" + $("#file").val();
+            // window.open(url);
+            download(url);
+        });
+    });
+
+    function download(url) {
+        var iframe = document.createElement("iframe")
+        iframe.style.display = "none";
+        iframe.src = url;
+        document.body.appendChild(iframe);
+    }
+</script>
+</body>
+</body>
+</html>
